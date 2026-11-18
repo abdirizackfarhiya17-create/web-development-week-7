@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise - Interactive Budgeting Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SpendWise Dashboard</h1>
+            <p>Track your spending and make smart budget decisions.</p>
+        </header>
+
+        <!-- Budget Configuration Section -->
+        <section class="budget-setup card">
+            <h2>Set Your Budget</h2>
+            <div class="input-group">
+                <input type="number" id="monthly-budget-input" placeholder="Enter total budget (e.g., 2000)" min="0">
+                <button id="set-budget-btn">Set Budget</button>
+            </div>
+        </section>
+
+        <!-- Dashboard Summary Overview -->
+        <section class="dashboard-summary">
+            <div class="metric-card card">
+                <h3>Total Budget</h3>
+                <p id="total-budget-display">$0.00</p>
+            </div>
+            <div class="metric-card card">
+                <h3>Total Expenses</h3>
+                <p id="total-expenses-display">$0.00</p>
+            </div>
+            <div class="metric-card card">
+                <h3>Remaining Balance</h3>
+                <p id="remaining-balance-display">$0.00</p>
+            </div>
+        </section>
+
+        <!-- Dynamic Status Alert Message Box -->
+        <section id="budget-status-alert" class="alert-box hide"></section>
+
+        <div class="dashboard-main">
+            <!-- Expense Entry Form Component -->
+            <section class="expense-form-section card">
+                <h2>Add New Expense</h2>
+                <form id="expense-form">
+                    <div class="form-control">
+                        <label for="expense-name">Expense Name</label>
+                        <input type="text" id="expense-name" placeholder="e.g., Groceries, Rent" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="expense-amount">Amount ($)</label>
+                        <input type="number" id="expense-amount" placeholder="e.g., 50" min="0.01" step="0.01" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="expense-category">Category</label>
+                        <select id="expense-category">
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Utilities">Utilities</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="add-expense-btn">Add Expense</button>
+                </form>
+            </section>
+
+            <!-- Live List Display Section -->
+            <section class="expense-list-section card">
+                <h2>Expense Records</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-log-table">
+                            <!-- Populated dynamically via JavaScript loops -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+<p>© 2026 SpendWise Application - Deployed by Farhiya</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
